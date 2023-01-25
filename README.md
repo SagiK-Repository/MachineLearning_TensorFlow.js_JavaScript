@@ -53,6 +53,18 @@
 
 ## 1. 개요
 
+- 머신러닝 목적 : 추론
+- TensorFlow에서 Tensor는 수학에서 사용하는 언어, Flow는 Tensor의 흐름이다.
+  - Tensor로 값을 구한 후에, 이어진 흐름상의 Tensor에 Tensor를 넘겨주면 다시 값을 구하는 흐름이다.
+- Tensor와 자바스크립트 인스턴스의 차이는 플로우(Flow)가 있다는 점이다.
+  ```js
+  const one = tf.Scalar(1), two = tf.Scalar(2), five = tf.Scalar(5);
+
+  tf.add(one, two).div(five);
+  ```
+- TensorFlow.js 파일을 설치해야 한다. <부록>
+- TF.js는 머신러닝 모델 개발을 가히 위한 라이브러리이다.
+
 <br><br>
 
 ## 2. Tensor 생성
