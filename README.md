@@ -166,6 +166,44 @@
 
 ## 4. Tensor 연산
 
+- tensor 산술연산
+  - add() : 더하기
+  - addN() : 더하기, 파라미터에 배열로 다수의 tf.Tensor 작성
+  - sub() : 빼기
+  - mul() : 곱하기
+  - div() : 나누기
+  - floorDiv() : 나눈 몫
+  - tf.mod() : 나눈 나머지, 몫은 버림
+  - tf.maximum() : 가장 큰 값 (엘리먼트 비교)
+  - tf.minimum() : 가장 작은 값 (엘리먼트 비교)
+  - tf.pow() : 거듭제곱
+  - tf.squaredDifference() : 차이 제곱
+  - tf.cumsum() : 누적
+- tensor 논리연산
+  - tf.equal()
+  - tf.notEqual()
+  - tf.greater() : >
+  - tf.greaterEqual() : >=
+  - tf.less()
+  - tf.lessEqual()
+  - tf.logicalAnd() : &&
+  - tf.logicalOr()
+  - tf.logicalNot()
+  - tf.logicalXor()
+  - tf.where() : a||b, 상태에 따라 값 변환
+  - tf.whereAsync() : 값이 true일 때 값의 인덱스 반환, Promise 처리
+- tensor 수열
+  ```js
+  // 등차수열
+  const tsOne = tf.linspace(0, 10, 5); // [0, 2.5, 5, 7.5, 10]
+  tf.range(0, 8, 2); // [0, 2, 4, 6]
+  tf.range(0, 3); // [0, 1, 2]
+  tf.range(7, 0, -2); // [7, 5, 3, 1]
+  
+  tf.range(0, 10, 2).sum(); // 20
+  
+  ```
+
 <br><br>
 
 ## 5. Tensor Class
