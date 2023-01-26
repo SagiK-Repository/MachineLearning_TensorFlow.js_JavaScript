@@ -127,6 +127,41 @@
 
 ## 3. 함수, 식, 행렬
 
+- 벡터
+  ```js
+  const tsOne = tf.tensor1d([10, 13, 16]);
+  const tsTwo = tf.tensor1d([1, 3, 5]);
+  
+  tsOne.add(tsTwo); // [11, 16, 21]
+  tsOne.sub(tsTwo); // [9, 10, 11]
+  
+  const tsScl = tf.scalar(7);  
+  tsScl.add(tsTwo); // [8, 10, 12]
+  
+  // 내적
+  tsOne.dot(tsTwo); // 32
+  
+  // 외적
+  tf.outerProduct(tsOne, tsTwo); // [[4, 5, 6], [8, 10, 12], [12, 15, 18]]
+  ```
+- 행렬
+  ```js
+  const tsOne = tf.tensor2d([1, 2 ,3 ,4], [2, 2]);
+  const tsTwo = tf.tensor2d([5, 6, 7, 8], [2, 2]);
+  
+  tsOne.add(tsTwo); // [[6, 8], [10, 12]]
+  
+  const tsThr = tf.tensor1d([1, 2]);
+  tsOne.add(tsThr); // [[2, 4], [4, 6]]
+  
+  // 행렬곱
+  tsTwo = tf.tensor2d([[5], [6]]);
+  tsOne.matMul(tsTwo); // [[17], [39]]
+  
+  // 엘리먼트-와이즈 곱
+  tsOne.mul(tsTwo); // [[5, 10], [18, 24]]
+  ```
+
 <br><br>
 
 ## 4. Tensor 연산
