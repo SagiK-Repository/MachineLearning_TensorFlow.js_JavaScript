@@ -102,8 +102,26 @@
   const buffer8 = new Unit8Array(2); // 8비트 처리 (0~255), RGB 값 때 많이 사용
   buffer8[0] = 1;
   tf.Tensor(buffer8).print(); // [1, 0]
-
+  
+  tf.tensor1d([1, 2, 3]); // [1, 2, 3]
+  tf.tensor1d([1,-3, 0], bool); // [1, 0, 0]
+  tf.tensor2d([1, 2, 3, 4, 5, 6], [3, 2]);
   ```
+- scalar Tensor
+  ```js
+  tf.scalar(123).print(true);
+  // dtype : float 32
+  // rank : 0
+  // shape : []
+  // values : 123
+
+  tf.scalar(true).print(true);
+  // dtype : bool
+  // rank : 0
+  // shape : []
+  // values : 1
+  ```
+
 
 <br><br>
 
