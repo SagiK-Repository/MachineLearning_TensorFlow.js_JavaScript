@@ -69,6 +69,42 @@
 
 ## 2. Tensor 생성
 
+- TF.js의 근본인 Tensor를 생성해본다.
+  ```js
+  tf.Tensor(10).print(); // 10
+  tf.Tensor([1, 2, 3, 4]).print(); // [1, 2, 3, 4]
+  tf.Tensor([[1, 2], [3, 4]]).print(); // [[1, 2], [3, 4]]
+  tf.Tensor([[1, 2, 3, 4, 5, 6], [2, 3]]).print(); // [[1, 2, 3], [4, 5, 6]] (2행 3열)
+  tf.Tensor([[1, 2, 3, 4, 5, 6], [2, 3, 1]).print(); // [[[1, 2, 3], [4, 5, 6]]] (1차원 2행 3열)
+
+  const one = tf.Tensor([1, 2]);
+  tf.print(one); // [1, 2]
+  web.log(one);
+
+  tf.Tensor([31, 32]).print(true);
+  // dtype: float32
+  // rank : 1
+  // shape : [2]
+  // value :
+  // [31, 32]
+  ```
+- TypeArray 오브젝트를 생성할 수 있다.
+  ```js
+  const typed32 = new Int32Array(2);
+  typed32[0] = 128;
+  tf.Tensor(typed32).print(); // [128, 0]
+
+  const buffer = new ArrayBuffer(12); // 12바이트
+  const buffer32 = new Float32Array(buffer); // 4바이트 단위로 실수값을 View하기에, 3개의 엘리먼트
+  buffer32[0] = 4.5, buffer32[2] = 9.1;
+  tf.Tensor(buffer32).print(); // [4.5, 0, 9.1]
+  
+  const buffer8 = new Unit8Array(2); // 8비트 처리 (0~255), RGB 값 때 많이 사용
+  buffer8[0] = 1;
+  tf.Tensor(buffer8).print(); // [1, 0]
+
+  ```
+
 <br><br>
 
 ## 3. 함수, 식, 행렬
