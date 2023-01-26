@@ -13,8 +13,8 @@
 
 - [ ] 1부 TensorFlow.js
   - [x] [1. 개요](https://github.com/SagiK-Repository/MachineLearning_TensorFlow.js_JavaScript/blob/main/README.md#1-%EA%B0%9C%EC%9A%94)
-  - [ ] 2. Tensor 생성
-  - [ ] 3. 함수, 식, 행렬
+  - [x] 2. Tensor 생성
+  - [x] 3. 함수, 식, 행렬
   - [ ] 4. Tensor 연산
   - [ ] 5. Tensor Class
   - [ ] 6. Tensor 추출, 변환
