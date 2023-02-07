@@ -200,13 +200,63 @@
   tf.range(0, 3); // [0, 1, 2]
   tf.range(7, 0, -2); // [7, 5, 3, 1]
   
+  // 시그마
   tf.range(0, 10, 2).sum(); // 20
-  
+  tf.zeros(); // 모두 0
+  tf.zerosLike(); // shape가 같은 tf.Tensor 생성 + 0
+  tf.ones(); tf.onesLike();
+  tf.fill(); // 모든 엘리먼트 값을 스칼라로 대체
+  tf.clone();
+  ```
+- 수학식
+  ```js
+  tf.abs(); // 절댓값
+  tf.ceil(); // 최소 정수
+  tf.floor(); // 최대 정수
+  tf.round(); // 반올림
+  // ...
+  ```
+- 특수 기능
+  ```js
+  // 최대 최소
+  const tsOne = tf.tensor1d([1, 2, -3, 4]);
+  tsOne.clipByValue(-2, 3); // [1, 2, -2, 3]
+  tf.clipByValue(tsOne, -2, 3); // 동일
   ```
 
 <br><br>
 
 ## 5. Tensor Class
+
+- 함수 목록
+  ```js
+  // shape 변환
+  const tsOne = tf.tensor2d([[1, 2], [3, 4]]).flatten(); // [1, 2, 3, 4]
+  const tsTwo = tf.tensor2d([1, 2, 3, 4], [2, 2]).reshapeAs(tsOne); // [1, 2, 3, 4]
+
+  // 스칼라 변환
+  tf.tensor1d([124]).asScalar(); // 124
+
+  // 랭크 변환
+  tf.tensor3d([[[1], [2], [3], [4]]]).as2D(); // [[1, 2], [3, 4]]
+  tf.tensor3d([[[1], [2], [3], [4]]]).as1D(); // [1, 2, 3, 4]
+
+  // 값 타입 변환
+  tf.tendor1d([1.0, 2.1, 3.1]).asType('int32'); // [1, 2, 3]
+
+  // 동기 방법 텐서 추출
+  const tsOne = tf.tensor2d([[1, 2], [3, 4]]);
+  const typedData = tsOne.dataSync(); // tsOne을 TypedArray 오브젝트로 변환
+  web.getArray(typedData); // [1, 2, 3, 4]
+  getArray(values){
+    if (values.shape) { values = values.dataSync(); }
+    return Array.from(values).map((value) => {return value});
+  }
+
+  // 비동기 방법 텐서 추출
+  const tsOne = tf.tensor2d([[1], [3]]);
+  const typedData = await tsTwo.data(); // 0: 1  1: 3
+  ```
 
 <br><br>
 
